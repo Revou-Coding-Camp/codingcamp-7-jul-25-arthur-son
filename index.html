@@ -1,11 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="bg-[#0F172A] text-white">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ToDoList-RevoU</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ToDoList-RevoU</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
 </head>
-<body>
+<body class="flex items-center justify-center min-h-screen font-sans">
+  <div class="bg-[#1E293B] rounded-lg shadow-lg p-6 w-full max-w-3xl">
+    <h1 class="text-2xl font-semibold text-center mb-4">To Do List - RevoU</h1>
+
+    <!-- Notification -->
+    <div id="notification" class="mb-4 hidden px-4 py-2 rounded text-sm font-medium bg-green-500 text-black"></div>
     
+    <!-- Input Row -->
+    <div class="flex gap-2 mb-4">
+      <input id="taskInput" type="text" placeholder="Tambahkan To Do List . . ." class="flex-1 px-4 py-2 bg-[#0F172A] text-white rounded border border-gray-600 focus:outline-none" />
+      <input id="dateInput" type="date" class="px-4 py-2 bg-[#0F172A] text-white rounded border border-gray-600 focus:outline-none" />
+      <button id="addBtn" class="bg-indigo-400 hover:bg-indigo-500 text-black font-bold px-4 py-2 rounded">+</button>
+    </div>
+
+    <!-- Filter Dropdown + Delete All -->
+    <div class="flex justify-between items-start mb-2 relative">
+      <div class="relative">
+        <button id="filterToggleBtn" class="bg-gray-700 text-white px-4 py-1 rounded">FILTER</button>
+        <div id="filterDropdown" class="absolute mt-1 left-0 z-10 w-36 bg-[#1E293B] rounded shadow-md border border-gray-600 hidden">
+          <button class="block w-full text-left px-4 py-2 hover:bg-gray-700 filter-btn" data-filter="Semua">Semua</button>
+          <button class="block w-full text-left px-4 py-2 hover:bg-gray-700 filter-btn" data-filter="Pending">Pending</button>
+          <button class="block w-full text-left px-4 py-2 hover:bg-gray-700 filter-btn" data-filter="Selesai">Selesai</button>
+        </div>
+      </div>
+      <button id="deleteAllBtn" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-1 rounded">DELETE ALL</button>
+    </div>
+
+    <!-- Todo Table -->
+    <div class="overflow-auto rounded bg-[#0F172A]">
+      <table class="min-w-full text-sm">
+        <thead class="text-left text-gray-300 border-b border-gray-700">
+          <tr>
+            <th class="p-3">TASK</th>
+            <th class="p-3">DUE DATE</th>
+            <th class="p-3">STATUS</th>
+            <th class="p-3">ACTIONS</th>
+          </tr>
+        </thead>
+        <tbody id="todoTableBody"></tbody>
+      </table>
+    </div>
+
+    <!-- Footer -->
+    <div class="text-center text-sm text-gray-400 mt-6">
+      Made with <span class="text-red-500">❤️</span> by <span class="font-bold text-white">Putra Al Fathurrizqi</span>
+    </div>
+  </div>
+  <script src="js/script.js"></script>
 </body>
 </html>
